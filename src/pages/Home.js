@@ -1,19 +1,19 @@
 // theme
 import { useSelector, useDispatch } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { theme } from 'constants/theme';
+import { theme } from '../constants/theme.js';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
-import { selectUserTheme } from 'redux/auth/authSelectors';
+import { selectUserTheme } from '../redux/auth/authSelectors.js';
 import {
   getAllDashboards,
   getDashboardById,
-} from 'redux/dashboards/dashboardsOperations';
+} from '../redux/dashboards/dashboardsOperations.js';
 
-import Header from 'components/Header/Header';
-import { Container } from 'components/Container/Container.styled';
-import { Sidebar } from 'components/Sidebar/Sidebar';
-import Loader from 'components/AuthPage/Loader';
+import Header from '../components/Header/Header.js';
+import { Container } from '../components/Container/Container.styled';
+import { Sidebar } from '../components/Sidebar/Sidebar.js';
+import Loader from '../components/AuthPage/Loader.js';
 
 const Home = () => {
   const dispatch = useDispatch();

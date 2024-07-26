@@ -18,7 +18,6 @@ export const ModalContainer = styled.div`
   background: #151515; /* Fundal negru */
   border-radius: 8px;
   padding: 20px;
-  width: 100%;
   max-width: 484px;
   height: auto;
   max-height: 90vh; /* Înălțimea maximă a modalului */
@@ -30,19 +29,21 @@ export const ModalContainer = styled.div`
   /* Media queries pentru ecrane mai mici */
   @media (max-width: 768px) {
     width: 90%;
-    padding: 15px;
+    margin-right: 85px;
+    margin-left: 20px;
   }
 
   @media (max-width: 480px) {
-    width: 85%;
-    padding: 10px;
+    width: 95%;
+    margin-right: 70px;
+    margin-left: 20px;
   }
 `;
 
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 100%;
+  padding-right: 285px;
   margin-bottom: 20px; /* Mărim distanța dintre butoane și inputuri */
 
   /* Media queries pentru ecrane mai mici */
@@ -65,7 +66,7 @@ export const HeaderButton = styled.button`
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   cursor: pointer;
-  margin-right: 20px; /* Marginea între butoane */
+
   transition: color 0.3s, opacity 0.3s;
 
   &:hover {
@@ -102,32 +103,44 @@ export const Input = styled.input`
   }
   /* Media queries pentru ecrane mai mici */
   @media (max-width: 768px) {
-    max-width: 70%;
+    max-width: 265px;
   }
 
   @media (max-width: 480px) {
-    max-width: 60%;
+    max-width: 235px;
   }
+`;
+export const PasswordInput = styled(Input)`
+  padding-right: 10px; /* Asigură-te că inputul are suficient spațiu pentru icon */
 `;
 
 export const PasswordWrapper = styled.div`
   position: relative;
+  width: 364px;
+  max-width: 364px;
   padding-bottom: 20px;
   height: 49px;
 
   /* Media queries pentru ecrane mai mici */
   @media (max-width: 768px) {
-    max-width: 70%;
+    position: relative;
+    width: 268px;
+    max-width: 268px;
+    padding-bottom: 20px;
+    height: 49px;
   }
 
   @media (max-width: 480px) {
-    max-width: 60%;
+    position: relative;
+    width: 238px;
+    max-width: 238px;
+    padding-bottom: 20px;
+    height: 49px;
   }
 `;
-
 export const EyeIcon = styled.span`
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: 20px;
   transform: translateY(-50%);
   cursor: pointer;
@@ -140,7 +153,7 @@ export const EyeIcon = styled.span`
   }
 
   @media (max-width: 480px) {
-    font-size: 14px;
+    font-size: 18px;
   }
 `;
 
@@ -162,12 +175,12 @@ export const SubmitButton = styled.button`
 
   /* Media queries pentru ecrane mai mici */
   @media (max-width: 768px) {
-    max-width: 70%;
+    max-width: 268px;
     margin-top: 15px;
   }
 
   @media (max-width: 480px) {
-    max-width: 60%;
+    max-width: 238px;
     margin-top: 10px;
     padding-left: 0px;
   }
@@ -236,10 +249,12 @@ export const ErrorMessage = styled.p`
   @media (max-width: 768px) {
     font-size: 12px;
     margin-top: 20px;
+    width: 268px;
   }
 
   @media (max-width: 480px) {
     font-size: 10px;
     margin-top: 15px;
+    width: 238px;
   }
 `;

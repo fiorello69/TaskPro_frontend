@@ -1,6 +1,6 @@
-import WelcomePage from 'components/WelcomePage/WelcomePage';
+import {WelcomePage} from 'components/WelcomePage/WelcomePage';
 
-const Welcome = () => {
+export const Welcome = () => {
   return (
     <>
       <WelcomePage />

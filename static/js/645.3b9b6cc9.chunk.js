@@ -1,2 +1,0 @@
-(self.webpackChunktask_pro_frontend=self.webpackChunktask_pro_frontend||[]).push([[645],{958:()=>{},645:(e,n,s)=>{"use strict";s.r(n),s.d(n,{default:()=>k});var r=s(958),t=s.n(r),a=s(579);const k=()=>(0,a.jsx)(a.Fragment,{children:(0,a.jsx)(t(),{})})}}]);
-//# sourceMappingURL=645.3b9b6cc9.chunk.js.map

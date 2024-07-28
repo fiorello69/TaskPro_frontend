@@ -1,1 +1,1 @@
-// export { default } from './AddColumnModal';
+export { default } from './AddColumnModal';

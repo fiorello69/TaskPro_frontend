@@ -1,1 +1,1 @@
-// export { default } from './EditBoardModal';
+export { default } from './EditBoardModal';

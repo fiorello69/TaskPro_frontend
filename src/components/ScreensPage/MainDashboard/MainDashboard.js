@@ -1,10 +1,85 @@
-// Componenta returnează un element Wrapper care conține:
-// 	•	ContentWrapper gestionează evenimentele de mouse pentru drag-ul orizontal.
-// 	•	Listează ColumnTask pentru fiecare coloană din columns.
-// 	•	AddButton pentru deschiderea modalului de adăugare a unei noi coloane.
-// 	•	BasicModal care conține AddColumnModal pentru a adăuga o nouă coloană în dashboard.
-// 	Componenta MainDashboard utilizează react-redux pentru a interacționa cu starea aplicației.
-// 	•	useState și useRef sunt folosite pentru a gestiona stările locale și referințele DOM.
-// 	•	Include funcționalitate de drag pentru derularea orizontală a conținutului.
-// 	•	BasicModal și AddColumnModal sunt folosite pentru a afișa și adăuga coloane în dashboard.
-// 	•	Wrapper și ContentWrapper sunt folosite pentru a stiliza și structura componenta.
+import React, { useState, useRef } from 'react';
+import AddButton from '../../../components/Boards/AddButton/AddButton.js';
+import { ColumnTask } from '../../../components/Boards/ColumnTask/ColumnTask.js';
+import { ContentWrapper, Wrapper } from './MainDashboard.styled';
+import BasicModal from '../../../components/Modals/BasicModal/BasicModal.js';
+import AddColumnModal from '../../../components/Modals/ColumnModal/AddColumnModal/AddColumnModal.js';
+import { useSelector } from 'react-redux';
+import {
+  selectColumns,
+  selectColumnsLength,
+  selectCurrentDashboard,
+} from '../../../redux/dashboards/dashboardsSelectors';
+
+const MainDashboard = () => {
+  const columnLength = useSelector(selectColumnsLength);
+  const currentDashboard = useSelector(selectCurrentDashboard);
+  const columns = useSelector(selectColumns);
+
+  const [open, setOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const scrollRef = useRef(null);
+  const [startX, setStartX] = useState(0);
+
+  const handleOpen = () => {
+    setOpen(true);
+    setIsDragging(false);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+    setIsDragging(true);
+  };
+
+  const handleMouseDown = e => {
+    if (e.button === 0) {
+      const target = e.target.tagName.toLowerCase();
+      if (target !== 'input' && target !== 'textarea') {
+        setIsDragging(true);
+        setStartX(e.pageX - scrollRef.current.offsetLeft);
+      }
+    }
+  };
+
+  const handleMouseMove = e => {
+    if (!isDragging || open) return;
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 0.05;
+    scrollRef.current.scrollLeft = scrollRef.current.scrollLeft - walk;
+  };
+
+  const handleMouseUp = e => {
+    if (e.button === 0) {
+      setIsDragging(false);
+    }
+  };
+
+  return (
+    <Wrapper $length={columnLength} ref={scrollRef}>
+      <ContentWrapper
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
+        {columns &&
+          columns.map(item => <ColumnTask key={item._id} item={item} />)}
+
+        <AddButton openModal={handleOpen} />
+      </ContentWrapper>
+
+      <BasicModal
+        open={open}
+        closeModal={handleCloseModal}
+        children={
+          <AddColumnModal
+            dashboardId={currentDashboard?._id}
+            closeModal={handleCloseModal}
+          />
+        }
+      />
+    </Wrapper>
+  );
+};
+
+export default MainDashboard;

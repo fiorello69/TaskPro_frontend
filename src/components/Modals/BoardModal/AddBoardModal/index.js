@@ -1,1 +1,1 @@
-// export { default } from './AddBoardModal';
+export { default } from './AddBoardModal';

@@ -1,10 +1,31 @@
-// Componenta ScreensPage utilizează react-redux pentru a interacționa cu starea aplicației.
-// 	•	Folosește useSelector pentru a extrage date din starea Redux și useDispatch pentru a trimite acțiuni.
-// 	•	Include o funcționalitate de închidere a meniului când utilizatorul face clic pe ecran.
-// 	•	Componentele HeaderDashboard și MainDashboard sunt incluse în layout-ul componentei.
-// Componenta returnează un element Wrapper care ar trebui sa conțina
-// 	•	onClick={handleScreenClick}: când utilizatorul face clic pe Wrapper, handleScreenClick este apelată.
-// 	•	bgcUrl={currentBg}: setarea URL-ului pentru fundal.
-// 	•	isOpen={menuMode}: indicarea dacă meniul este deschis.
-// 	•	HeaderDashboard care primește currentName ca prop children.
-// 	•	MainDashboard care este o altă componentă ce este afișată în interiorul Wrapper.
+import { useDispatch, useSelector } from 'react-redux';
+import { Wrapper } from './ScreensPage.styled';
+import { selectIsMenuOpen } from '../../redux/menuMode/menuModeSelectors';
+import { closeMenuMode } from '../../redux/menuMode/menuModeSlice';
+
+import HeaderDashboard from './HeaderDashboard/HeaderDashboard.js';
+import MainDashboard from './MainDashboard/MainDashboard.js';
+
+const ScreensPage = () => {
+  const dispatch = useDispatch();
+
+  const menuMode = useSelector(selectIsMenuOpen);
+  const currentBg = useSelector(state => state?.dashboards?.currentBg);
+  const currentName = useSelector(state => state?.dashboards?.currentName);
+
+  const handleScreenClick = () => {
+    if (menuMode) {
+      dispatch(closeMenuMode());
+    }
+  };
+
+  return (
+    <Wrapper onClick={handleScreenClick} $bgcUrl={currentBg} $isOpen={menuMode}>
+      <HeaderDashboard children={currentName} />
+
+      <MainDashboard />
+    </Wrapper>
+  );
+};
+
+export default ScreensPage;

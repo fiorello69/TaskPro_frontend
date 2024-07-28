@@ -1,1 +1,1 @@
-// export { default } from './EditColumnModal';
+export { default } from './EditColumnModal';

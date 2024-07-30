@@ -1,4 +1,4 @@
-import Filter from '../Filter/Filter';
+import Filter from '../Filter/Filter.js';
 import { Header, Title } from './HeaderDashboard.styled';
 
 const HeaderDashboard = ({ children }) => {

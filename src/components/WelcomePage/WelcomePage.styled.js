@@ -167,3 +167,4 @@ export const GoogleLoginButton = styled.a`
     margin-right: 10px; /* Space between Google icon and text */
   }
 `;
+

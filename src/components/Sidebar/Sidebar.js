@@ -5,9 +5,9 @@ import { selectUserTheme } from '../../redux/auth/authSelectors.js';
 import { selectIsMenuOpen } from '../../redux/menuMode/menuModeSelectors.js';
 
 import BoardList from './BoardList';
-import NeedHelpBlock from '../../components/Sidebar/NeedHelpBlock/NeedHelpBlock.js';
-import BasicModal from '../../components/Modals/BasicModal/BasicModal.js';
-import AddBoardModal from '../../components/Modals/BoardModal/AddBoardModal/AddBoardModal.js';
+import NeedHelpBlock from 'components/Sidebar/NeedHelpBlock/NeedHelpBlock.js';
+import BasicModal from 'components/Modals/BasicModal/BasicModal.js';
+import AddBoardModal from 'components/Modals/BoardModal/AddBoardModal/AddBoardModal.js';
 
 import sprite from '../../images/sprite.svg';
 import {
@@ -25,7 +25,7 @@ import {
   TextLogOut,
   IconClose,
 } from './Sidebar.styled';
-import { closeMenuMode } from '../../redux/menuMode/menuModeSlice.js';
+import { closeMenuMode } from '../../redux/menuMode/menuModeSlice';
 
 export const Sidebar = () => {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <Aside $isOpen={menuMode}>
+    <Aside isOpen={menuMode}>
       <div style={{ width: '100%' }}>
         <Logo>
           <IconLogo aria-label="logo icon">

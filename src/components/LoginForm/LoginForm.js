@@ -14,7 +14,7 @@ import {
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from '../../redux/auth/authOperations.js';
-import Loader from '../../components/AuthPage/Loader.js';
+import Loader from 'components/AuthPage/Loader.js';
 import { selectIsLoading } from '../../redux/auth/authSelectors.js';
 import { toast } from 'react-toastify';
 

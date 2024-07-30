@@ -1,8 +1,8 @@
 import { Icon, Text, Wrapper } from './Filter.styled';
 import sprite from '../../../images/sprite.svg';
-import BasicModal from 'components/Modals/BasicModal/BasicModal';
+import BasicModal from 'components/Modals/BasicModal/BasicModal.js';
 import { useState } from 'react';
-import FiltersModal from '../../../components/Modals/FiltersModal/FiltersModal.js';
+import FiltersModal from 'components/Modals/FiltersModal/FiltersModal.js';
 
 const Filter = () => {
   const [open, setOpen] = useState(false);

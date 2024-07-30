@@ -12,7 +12,7 @@ import {
   deleteCard,
   editCard,
   changeColumn,
-} from './dashboardsOperations';
+} from './dashboardsOperations.js';
 import { logOut } from '../../redux/auth/authOperations.js';
 
 const handlePending = state => {

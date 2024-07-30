@@ -7,13 +7,13 @@ export const Wrapper = styled.div`
   margin: auto;
 
   height: calc(100vh - 60px);
-  margin-left: ${props => (props.$isOpen ? '225px' : '0')};
+  margin-left: ${props => (props.isOpen ? '225px' : '0')};
   transition: all 250ms linear;
   padding: 20px;
 
   @media screen and (min-width: 768px) {
     height: calc(100vh - 68px);
-    margin-left: ${props => (props.$isOpen ? '260px' : '0')};
+    margin-left: ${props => (props.isOpen ? '260px' : '0')};
   }
 
   @media screen and (min-width: 1280px) {

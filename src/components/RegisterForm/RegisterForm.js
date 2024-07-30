@@ -14,7 +14,7 @@ import {
 } from './RegisterForm.styled';
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import Loader from '../../components/AuthPage/Loader.js';
+import Loader from 'components/AuthPage/Loader.js';
 import { useSelector } from 'react-redux';
 import { selectIsLoading } from '../../redux/auth/authSelectors.js';
 

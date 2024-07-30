@@ -130,7 +130,7 @@ const AddBoardModal = ({ closeModal }) => {
           </FormWrapper>
 
           <FormWrapper>
-            <FormTitle>Backgrounds </FormTitle>
+            <FormTitle>Backgraunds </FormTitle>
             <RadioBtnWrapper>
               {data.map((el, idx) => (
                 <label key={idx}>

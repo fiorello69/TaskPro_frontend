@@ -47,7 +47,7 @@ const ThemePicker = () => {
   return (
     <Wrapper ref={themeRef} onClick={handlePopup}>
       <Text>Theme</Text>
-      <Icon $isOpen={isShownPopup}>
+      <Icon isOpen={isShownPopup}>
         <use href={sprite + '#icon-chevron-down'} />
       </Icon>
 

@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import { selectAllDashboards } from '../../redux/dashboards/dashboardsSelectors.js';
+import { selectAllDashboards } from '../../redux/dashboards/dashboardsSelectors';
 
-import BoardItem from '../../components/Sidebar/BoardItem//BoardItem.js';
+import BoardItem from './BoardItem/BoardItem.js';
 import { List } from './BoardList.styled';
 import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { closeMenuMode } from '../../redux/menuMode/menuModeSlice.js';
+import { closeMenuMode } from '../../redux/menuMode/menuModeSlice';
 
 const BoardList = () => {
   const dashboards = useSelector(selectAllDashboards);

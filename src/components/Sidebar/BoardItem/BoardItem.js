@@ -7,8 +7,8 @@ import {
 import { closeMenuMode } from '../../../redux/menuMode/menuModeSlice.js';
 
 import sprite from '../../../images/sprite.svg';
-import BasicModal from '../../../components/Modals/BasicModal/BasicModal';
-import EditBoardModal from '../../../components/Modals/BoardModal/EditBoardModal/EditBoardModal';
+import BasicModal from 'components/Modals/BasicModal/BasicModal.js';
+import EditBoardModal from 'components/Modals/BoardModal/EditBoardModal/EditBoardModal.js';
 import {
   Board,
   BoardIcon,

@@ -119,7 +119,7 @@ export const changeTheme = createAsyncThunk(
 );
 
 export const updateUser = createAsyncThunk(
-  'auth/prifile',
+  'auth/profile',
   async (credintials, thunkAPI) => {
     try {
       const { data } = await instance.put('api/users/profile', credintials);

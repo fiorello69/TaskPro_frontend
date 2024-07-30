@@ -1,8 +1,8 @@
 import { selectIsMenuOpen } from '../../redux/menuMode/menuModeSelectors.js';
-import { AccentText, Text, Wrapper } from './Start.styled.js';
+import { AccentText, Text, Wrapper } from './Start.styled';
 import { useSelector } from 'react-redux';
-import BasicModal from '../../components/Modals/BasicModal/BasicModal.js';
-import AddBoardModal from '../../components/Modals/BoardModal/AddBoardModal/AddBoardModal.js';
+import BasicModal from 'components/Modals/BasicModal/BasicModal.js';
+import AddBoardModal from 'components/Modals/BoardModal/AddBoardModal/AddBoardModal.js';
 import { useState } from 'react';
 
 const Start = () => {
@@ -14,7 +14,7 @@ const Start = () => {
 
   return (
     <>
-      <Wrapper $isOpen={menuMode}>
+      <Wrapper isOpen={menuMode}>
         <Text>
           Before starting your project, it is essential{' '}
           <AccentText onClick={handleOpen}>to create a board</AccentText> to

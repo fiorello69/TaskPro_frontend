@@ -21,7 +21,7 @@ export const Aside = styled.div`
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   ${props =>
-    props.$isOpen
+    props.isOpen
       ? 'transform: translateX(0);'
       : 'transform: translateX(-110%);'}
 

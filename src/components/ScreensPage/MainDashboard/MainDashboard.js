@@ -1,15 +1,15 @@
 import React, { useState, useRef } from 'react';
-import AddButton from '../../../components/Boards/AddButton/AddButton.js';
-import { ColumnTask } from '../../../components/Boards/ColumnTask/ColumnTask.js';
+import AddButton from 'components/Boards/AddButton/AddButton';
+import { ColumnTask } from 'components/Boards/ColumnTask/ColumnTask';
 import { ContentWrapper, Wrapper } from './MainDashboard.styled';
-import BasicModal from '../../../components/Modals/BasicModal/BasicModal.js';
-import AddColumnModal from '../../../components/Modals/ColumnModal/AddColumnModal/AddColumnModal.js';
+import BasicModal from 'components/Modals/BasicModal/BasicModal';
+import AddColumnModal from 'components/Modals/ColumnModal/AddColumnModal';
 import { useSelector } from 'react-redux';
 import {
   selectColumns,
   selectColumnsLength,
   selectCurrentDashboard,
-} from '../../../redux/dashboards/dashboardsSelectors';
+} from '../../../redux/dashboards/dashboardsSelectors.js';
 
 const MainDashboard = () => {
   const columnLength = useSelector(selectColumnsLength);
@@ -56,7 +56,7 @@ const MainDashboard = () => {
   };
 
   return (
-    <Wrapper $length={columnLength} ref={scrollRef}>
+    <Wrapper length={columnLength} ref={scrollRef}>
       <ContentWrapper
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}

@@ -4,16 +4,16 @@ import {
   selectIsLoading,
   selectUser,
   selectUserTheme,
-} from '../../../redux/auth/authSelectors';
+} from '../../../redux/auth/authSelectors.js';
 
 import userDark from '../../../images/user-dark.svg';
 import userLight from '../../..//images/user-light.svg';
 import userViolet from '../../../images/user-violet.svg';
-import EditProfileModal from '../../../components/Modals/EditProfileModal/EditProfileModal.js';
-import BasicModal from '../../../components/Modals/BasicModal/BasicModal.js';
+import EditProfileModal from 'components/Modals/EditProfileModal/EditProfileModal.js';
+import BasicModal from 'components/Modals/BasicModal/BasicModal.js';
 
 import { UserAvatar, UserName, Wrapper } from './UserBlock.styled';
-import Loader from '../../../components/AuthPage/Loader.js';
+import Loader from 'components/AuthPage/Loader.js';
 
 const UserBlock = () => {
   const isLoading = useSelector(selectIsLoading);

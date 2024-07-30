@@ -1,4 +1,4 @@
-import Loader from '../../components/AuthPage/Loader';
+import Loader from 'components/AuthPage/Loader.js';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 

@@ -11,7 +11,7 @@ import {
 } from '../redux/dashboards/dashboardsOperations.js';
 
 import Header from '../components/Header/Header.js';
-import { Container } from '../components/Container/Container.styled';
+import { Container } from '../components/Container/Container.styled.js';
 import { Sidebar } from '../components/Sidebar/Sidebar.js';
 import Loader from '../components/AuthPage/Loader.js';
 

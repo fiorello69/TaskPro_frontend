@@ -7,10 +7,11 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectIsRefreshing } from './redux/auth/authSelectors.js';
 import { refreshCurrentUser } from './redux/auth/authOperations.js';
-import Loader from 'components/AuthPage/Loader';
+import Loader from 'components/AuthPage/Loader.js';
 import Layout from './components/Layout/Layout.js';
-import LoginForm from './components/LoginForm/LoginForm';
-import RegisterForm from './components/RegisterForm/RegisterForm';
+import LoginForm from './components/LoginForm/LoginForm.js';
+import RegisterForm from './components/RegisterForm/RegisterForm.js';
+
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AuthPage = lazy(() => import('./pages/Auth'));

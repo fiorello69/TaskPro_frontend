@@ -17,7 +17,7 @@ import {
   ErrorSection,
   ModalForm,
 } from '../BoardModal.styled';
-import data from '../../../Modals/background.json';
+import data from '../../background.json';
 import sprite from '../../../../images/sprite.svg';
 
 import { Formik } from 'formik';

@@ -27,5 +27,5 @@ export const Icon = styled.svg`
   transition: all 250ms linear;
   fill: transparent;
 
-  ${props => props.isOpen && 'transform: rotate(-180deg)'};
+  ${props => props.$isOpen && 'transform: rotate(-180deg)'};
 `;

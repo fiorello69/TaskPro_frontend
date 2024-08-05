@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+
 export const WelcomeWrapper = styled.div`
   display: flex;
+  flex-direction: column; /* Adăugat pentru a alinia footerul la fundul paginii */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Schimbat de la height */
+  padding-bottom: 70px; /* Adaugă padding în partea de jos pentru a face loc footerului */
 
   background: linear-gradient(
     180deg,
@@ -14,11 +17,14 @@ export const WelcomeWrapper = styled.div`
   );
 `;
 
+
+
 export const WelcomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px;
+  padding-bottom: 20px; /* Adaugă padding pentru a evita suprapunerea cu footerul */
 
   @media (min-width: 375px) {
     width: 335px;
@@ -134,7 +140,7 @@ export const WelcomeLoginButton = styled(NavLink)`
     color: #ffffff;
   }
 `;
-export const GoogleLoginButton = styled.a`
+export const GoogleLoginButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,6 +171,6 @@ export const GoogleLoginButton = styled.a`
 
   & img {
     margin-right: 10px; /* Space between Google icon and text */
-  }
+
 `;
 

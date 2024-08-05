@@ -20,7 +20,7 @@ const ScreensPage = () => {
   };
 
   return (
-    <Wrapper onClick={handleScreenClick} bgcUrl={currentBg} isOpen={menuMode}>
+    <Wrapper onClick={handleScreenClick} $bgcUrl={currentBg} $isOpen={menuMode}>
       <HeaderDashboard children={currentName} />
 
       <MainDashboard />

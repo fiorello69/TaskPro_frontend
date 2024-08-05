@@ -13,7 +13,7 @@ const BurgenMenu = () => {
     <Button
       type="button"
       onClick={() => dispatch(openMenuMode())}
-      isOpen={menuMode}
+      $isOpen={menuMode}
     >
       <Icon>
         <use href={sprite + '#icon-menu'} />

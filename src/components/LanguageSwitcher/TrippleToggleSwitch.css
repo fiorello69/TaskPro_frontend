@@ -1,0 +1,168 @@
+
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+  top: -8px;
+}
+
+h4 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.black-font {
+  color: black !important;
+}
+
+.main-container {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+  height: 25px;
+  border-radius: 100px;
+  background-color: #87caa9;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%); 
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+.switch {
+  height: 20px;
+  width: 60px;
+  background-color: white;
+  border-radius: 100px;
+  position: absolute;
+  top: 3px;
+  transition: ease-in;
+}
+
+.switch.left-to-center {
+  animation: leftToCenter 0.5s;
+}
+
+.switch.left-to-right {
+  animation: leftToRight 0.5s;
+}
+
+.switch.center-to-left {
+  animation: centerToLeft 0.5s;
+}
+
+.switch.center-to-right {
+  animation: centerToRight 0.5s;
+}
+
+.switch.right-to-left {
+  animation: rightToLeft 0.5s;
+}
+
+.switch.right-to-center {
+  animation: rightToCenter 0.5s;
+}
+
+.switch.left-position {
+  left: 3px;
+}
+
+.switch.center-position {
+  left: 70px;
+}
+
+.switch.right-position {
+  left: 133px;
+}
+
+.left-label {
+  position: absolute;
+}
+
+.center-label {
+  position: absolute;
+  left: 70px;
+}
+
+.right-label {
+  position: absolute;
+  right: 5px;
+}
+
+#left + label, #center + label, #right + label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60px;
+  border-radius: 100px;
+}
+
+#left:checked + label, #center:checked + label, #right:checked + label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 60px;
+  border-radius: 100px;
+}
+
+@keyframes leftToCenter {
+  from {
+    left: 3px;
+  }
+  to {
+    left: 70px;
+  }
+}
+
+@keyframes leftToRight {
+  from {
+    left: 3px;
+  }
+  to {
+    left: 133px;
+  }
+}
+
+@keyframes centerToLeft {
+  from {
+    left: 70px;
+  }
+  to {
+    left: 3px;
+  }
+}
+
+@keyframes centerToRight {
+  from {
+    left: 70px;
+  }
+  to {
+    left: 133px;
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+    left: 133px;
+  }
+  to {
+    left: 3px;
+  }
+}
+
+@keyframes rightToCenter {
+  from {
+    left: 133px;
+  }
+  to {
+    left: 70px;
+  }
+}

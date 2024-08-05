@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import iconImage from '../../images/welcome-icon.png';
@@ -8,33 +9,35 @@ import {
   WelcomeIcon,
   WelcomeLogo,
   WelcomeLogoIcon,
+  WelcomeLogoTitle,
   WelcomeContainer,
   WelcomeDescription,
   WelcomeLoginButton,
   GoogleLoginButton,
   WelcomeRegisterButton,
-  WelcomeLogoTitle,
 } from './WelcomePage.styled';
+import Footer from 'components/Footer/Footer';
+import LanguageSwitcher from 'components/LanguageSwitcher/LanguageSwitcher';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const WelcomePage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSuccess = async response => {
     try {
-      const res = await fetch(
-        'https://taskpro-118463d10954.herokuapp.com/auth/google/callback',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            id_token: response.credential,
-          }),
-        }
-      );
+      const res = await fetch('http://localhost3001/auth/google/callback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          id_token: response.credential,
+        }),
+      });
 
       const data = await res.json();
       if (res.ok) {
@@ -45,52 +48,73 @@ const WelcomePage = () => {
         console.error('Not signed in:', data.message);
       }
     } catch (error) {
-      console.error('Autentification error:', error);
+      console.error('Authentication error:', error);
     }
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    window.document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    window.document.body.style.overflow = 'unset';
   };
 
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <WelcomeWrapper>
         <WelcomeContainer>
+          <LanguageSwitcher />
           <WelcomeIcon src={iconImage} alt="man with macbook" />
           <WelcomeLogo>
             <WelcomeLogoIcon>
               <use href={sprite + '#icon-logo'} />
             </WelcomeLogoIcon>
-            <WelcomeLogoTitle>Task Pro</WelcomeLogoTitle>
+            <WelcomeLogoTitle>
+              {t('welcome_title', 'Task Pro')}
+            </WelcomeLogoTitle>
           </WelcomeLogo>
           <WelcomeDescription>
-            Supercharge your productivity and take control of your tasks with
-            Task Pro - Don't wait, start achieving your goals now!
+            {t(
+              'welcome_text',
+              "Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!"
+            )}
           </WelcomeDescription>
           <WelcomeRegisterButton to="/auth/register">
-            Registration
+            {t('registration', 'Registration')}
           </WelcomeRegisterButton>
-          <WelcomeLoginButton to="/auth/login">Log In</WelcomeLoginButton>
+          <WelcomeLoginButton to="/auth/login">
+            {t('log_in', 'Log In')}
+          </WelcomeLoginButton>
           <GoogleLogin
             onSuccess={handleSuccess}
-            onFailure={error => console.error('Login Failed:', error)}
+            onError={error => console.error('Login Failed:', error)}
             render={renderProps => (
               <GoogleLoginButton
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
               >
                 <img
-                  src="/images/google-icon.svg"
+                  src="/images/google.svg"
                   alt="Google Icon"
                   width="20"
                   height="20"
                 />
-                Sign in with Google
+                {t('sign_in_with_google', 'Sign in with Google')}
               </GoogleLoginButton>
             )}
           />
         </WelcomeContainer>
+        <Footer
+          openModal={openModal}
+          closeModal={closeModal}
+          isModalOpen={isModalOpen}
+        />
       </WelcomeWrapper>
     </GoogleOAuthProvider>
   );
 };
 
 export default WelcomePage;
-

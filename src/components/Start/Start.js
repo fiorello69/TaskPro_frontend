@@ -14,7 +14,7 @@ const Start = () => {
 
   return (
     <>
-      <Wrapper isOpen={menuMode}>
+      <Wrapper $isOpen={menuMode}>
         <Text>
           Before starting your project, it is essential{' '}
           <AccentText onClick={handleOpen}>to create a board</AccentText> to

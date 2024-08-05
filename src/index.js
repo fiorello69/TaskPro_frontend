@@ -6,6 +6,7 @@ import { App } from 'App';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import 'modern-normalize';
+import './i18n';
 
 const root = document.getElementById('root');
 

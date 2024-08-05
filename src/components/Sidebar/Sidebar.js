@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { logOut } from '../../redux/auth/authOperations.js';
 import { selectUserTheme } from '../../redux/auth/authSelectors.js';
 import { selectIsMenuOpen } from '../../redux/menuMode/menuModeSelectors.js';
@@ -28,6 +29,7 @@ import {
 import { closeMenuMode } from '../../redux/menuMode/menuModeSlice';
 
 export const Sidebar = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const activeUserTheme = useSelector(selectUserTheme);
   const menuMode = useSelector(selectIsMenuOpen);
@@ -45,29 +47,29 @@ export const Sidebar = () => {
   };
 
   return (
-    <Aside isOpen={menuMode}>
+    <Aside $isOpen={menuMode}>
       <div style={{ width: '100%' }}>
         <Logo>
-          <IconLogo aria-label="logo icon">
+          <IconLogo aria-label={t('logo_icon_label')}>
             <use href={sprite + setIconLogo()} />
           </IconLogo>
 
-          <LogoText>Task Pro</LogoText>
+          <LogoText>{t('task_pro')}</LogoText>
 
           <IconClose onClick={() => dispatch(closeMenuMode())}>
             <use href={sprite + '#icon-x-close'} />
           </IconClose>
         </Logo>
 
-        <MyBoardsText>My boards</MyBoardsText>
+        <MyBoardsText>{t('my_boards')}</MyBoardsText>
 
         <AddBoardBlock>
           <CreateNewBoard onClick={handleOpen}>
-            Create a new board
+            {t('create_new_board')}
           </CreateNewBoard>
 
           <BtnAdd type="button" onClick={handleOpen}>
-            <IconPlus aria-label="add icon">
+            <IconPlus aria-label={t('add_icon_label')}>
               <use href={sprite + `#icon-plus`} />
             </IconPlus>
           </BtnAdd>
@@ -86,11 +88,11 @@ export const Sidebar = () => {
         <NeedHelpBlock />
 
         <BtnLogOut type="button" onClick={() => dispatch(logOut())}>
-          <IconLogOut aria-label="logout icon">
+          <IconLogOut aria-label={t('logout_icon_label')}>
             <use href={sprite + `#icon-login`} />
           </IconLogOut>
 
-          <TextLogOut>Log out</TextLogOut>
+          <TextLogOut>{t('log_out')}</TextLogOut>
         </BtnLogOut>
       </div>
     </Aside>

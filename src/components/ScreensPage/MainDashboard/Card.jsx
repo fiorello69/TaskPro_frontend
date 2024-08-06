@@ -29,7 +29,7 @@ const Card = ({ card, index }) => {
 
   const changeColumn = () => {
     const fromColIndex = columns.findIndex(col => col._id === card.owner);
-    const toColIndex = (fromColIndex + 1) % columns.$length;
+    const toColIndex = (fromColIndex + 1) % columns.length;
     const newOwner = columns[toColIndex]._id;
     dispatch(deleteCard(card._id));
     dispatch(

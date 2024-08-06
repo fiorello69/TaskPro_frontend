@@ -242,13 +242,13 @@
 
   user-select: none;
 
-  // @media screen and (min-width: 768px) {
-  //   overflow-x: ${e=>e.$length<2?"hidden":"scroll"};
-  // }
+  @media screen and (min-width: 768px) {
+    overflow-x: ${e=>e.$length<2?"hidden":"scroll"};
+  }
 
-  // @media screen and (min-width: 1280px) {
-  //   overflow-x: ${e=>e.$length<3?"hidden":"scroll"};
-  // }
+  @media screen and (min-width: 1280px) {
+    overflow-x: ${e=>e.$length<3?"hidden":"scroll"};
+  }
 `;var T=o(3703),U=o(184),q=o(7950);const H=i.Ay.div`
   position: fixed;
   top: 0;
@@ -475,9 +475,10 @@
   color: ${e=>e.theme.column.textMain};
 
   border-radius: 4px;
-  margin-bottom: 8px;
+
   overflow: hidden;
   position: relative;
+  min-height: 154px;
   height: 154px;
 
   .card-priority-bar {
@@ -564,7 +565,7 @@
   .card-button:hover {
     scale: 1.2;
   }
-`,pe=e=>{let{card:t,index:o}=e;const[i,r]=(0,u.useState)(!1),l=(0,n.d4)(I.Gs),a=(0,n.wA)(),d=e=>{switch(e){case"high":return"#8FA1D0";case"medium":return"#E09CB5";case"low":return"#BEDBB0";default:return"rgb(102, 98, 98)"}},s=()=>{const e=(l.findIndex((e=>e._id===t.owner))+1)%l.$length,o=l[e]._id;a((0,L.GO)(t._id)),a((0,L.gm)({columnId:o,title:t.title,description:t.description,priority:t.priority,deadline:t.deadline}))},c=()=>{a((0,L.GO)(t._id))};return(0,_.jsx)(T.sx,{draggableId:t._id,index:o,children:e=>(0,_.jsxs)(de,{ref:e.innerRef,...e.draggableProps,...e.dragHandleProps,style:{...e.draggableProps.style,marginRight:"8px"},children:[(0,_.jsx)("div",{className:"card-priority-bar",style:{backgroundColor:d(t.priority)}}),(0,_.jsxs)(se,{children:[(0,_.jsx)("h4",{className:"card-title",children:t.title}),(0,_.jsx)("p",{className:"card-description",children:t.description}),(0,_.jsxs)(ce,{children:[(0,_.jsxs)("div",{className:"card-info",children:[(0,_.jsxs)("div",{className:"card-priority",children:[(0,_.jsx)("span",{className:"card-footer-text",children:"Priority"}),(0,_.jsxs)("div",{className:"card-priority-div",children:[(0,_.jsx)("div",{className:"card-priority-bullet",style:{backgroundColor:d(t.priority)}}),(0,_.jsx)("span",{className:"card-footer-data",children:t.priority})]})]}),(0,_.jsxs)("div",{className:"card-deadline",children:[(0,_.jsx)("span",{className:"card-footer-text",children:"Deadline"}),(0,_.jsx)("span",{className:"card-footer-data",children:t.deadline.substr(0,10)})]})]}),(0,_.jsxs)("div",{className:"card-actions",children:[(0,_.jsx)("button",{className:"card-button",onClick:s,children:(0,_.jsx)(U.BEG,{})}),(0,_.jsx)("button",{className:"card-button",onClick:()=>r(!0),children:(0,_.jsx)(U.F7,{})}),i&&(0,_.jsx)(ae,{columnId:t.owner,card:t,onClose:()=>r(!1)}),(0,_.jsx)("button",{className:"card-button",onClick:c,children:(0,_.jsx)(U.qbC,{})})]})]})]})]})})},xe=i.Ay.div`
+`,pe=e=>{let{card:t,index:o}=e;const[i,r]=(0,u.useState)(!1),l=(0,n.d4)(I.Gs),a=(0,n.wA)(),d=e=>{switch(e){case"high":return"#8FA1D0";case"medium":return"#E09CB5";case"low":return"#BEDBB0";default:return"rgb(102, 98, 98)"}},s=()=>{const e=(l.findIndex((e=>e._id===t.owner))+1)%l.length,o=l[e]._id;a((0,L.GO)(t._id)),a((0,L.gm)({columnId:o,title:t.title,description:t.description,priority:t.priority,deadline:t.deadline}))},c=()=>{a((0,L.GO)(t._id))};return(0,_.jsx)(T.sx,{draggableId:t._id,index:o,children:e=>(0,_.jsxs)(de,{ref:e.innerRef,...e.draggableProps,...e.dragHandleProps,style:{...e.draggableProps.style,marginRight:"8px"},children:[(0,_.jsx)("div",{className:"card-priority-bar",style:{backgroundColor:d(t.priority)}}),(0,_.jsxs)(se,{children:[(0,_.jsx)("h4",{className:"card-title",children:t.title}),(0,_.jsx)("p",{className:"card-description",children:t.description}),(0,_.jsxs)(ce,{children:[(0,_.jsxs)("div",{className:"card-info",children:[(0,_.jsxs)("div",{className:"card-priority",children:[(0,_.jsx)("span",{className:"card-footer-text",children:"Priority"}),(0,_.jsxs)("div",{className:"card-priority-div",children:[(0,_.jsx)("div",{className:"card-priority-bullet",style:{backgroundColor:d(t.priority)}}),(0,_.jsx)("span",{className:"card-footer-data",children:t.priority})]})]}),(0,_.jsxs)("div",{className:"card-deadline",children:[(0,_.jsx)("span",{className:"card-footer-text",children:"Deadline"}),(0,_.jsx)("span",{className:"card-footer-data",children:t.deadline.substr(0,10)})]})]}),(0,_.jsxs)("div",{className:"card-actions",children:[(0,_.jsx)("button",{className:"card-button",onClick:s,children:(0,_.jsx)(U.BEG,{})}),(0,_.jsx)("button",{className:"card-button",onClick:()=>r(!0),children:(0,_.jsx)(U.F7,{})}),i&&(0,_.jsx)(ae,{columnId:t.owner,card:t,onClose:()=>r(!1)}),(0,_.jsx)("button",{className:"card-button",onClick:c,children:(0,_.jsx)(U.qbC,{})})]})]})]})]})})},xe=i.Ay.div`
   width: 334px;
   display: flex;
   flex-direction: column;
@@ -598,7 +599,7 @@
   .title-icons > button:hover {
     scale: 1.2;
   }
-`,ue=e=>{let{column:t,index:o}=e;const[i,r]=(0,u.useState)(!1),[l,a]=(0,u.useState)(!1),d=(0,n.wA)(),s=()=>{d((0,L.gR)(t._id))};return(0,_.jsx)(T.sx,{draggableId:t._id,index:o,children:e=>(0,_.jsxs)(xe,{ref:e.innerRef,...e.draggableProps,style:{...e.draggableProps.style,height:"99%"},children:[(0,_.jsxs)("div",{className:"column-title",...e.dragHandleProps,children:[t.title,(0,_.jsxs)("div",{className:"title-icons",id:t.title,children:[(0,_.jsx)("button",{type:"button",onClick:()=>a(!0),children:(0,_.jsx)(U.F7,{})}),l&&(0,_.jsx)(re,{title:t.title,columnId:t._id,onClose:()=>a(!1)}),(0,_.jsx)("button",{type:"button",onClick:s,children:(0,_.jsx)(U.qbC,{})})]})]}),(0,_.jsx)(T.gL,{droppableId:t._id,type:"card",children:e=>(0,_.jsxs)("div",{ref:e.innerRef,...e.droppableProps,style:{overflowY:"auto",overflowX:"hidden",minHeight:"10px",...Array.isArray(t.cards)&&t.cards.$length>2&&{maxHeight:"456px"}},children:[Array.isArray(t.cards)&&t.cards.map(((e,t)=>(0,_.jsx)(pe,{card:e,index:t},e._id))),e.placeholder]})}),(0,_.jsxs)(te,{$margintop:"14px",onClick:()=>r(!0),children:[(0,_.jsx)(oe,{children:(0,_.jsx)(ne,{children:(0,_.jsx)("use",{href:p.A+"#icon-plus"})})}),"Add another card"]}),i&&(0,_.jsx)(le,{columnId:t._id,onClose:()=>r(!1)})]})})},he=i.Ay.div`
+`,ue=e=>{let{column:t,index:o}=e;const[i,r]=(0,u.useState)(!1),[l,a]=(0,u.useState)(!1),d=(0,n.wA)(),s=()=>{d((0,L.gR)(t._id))};return(0,_.jsx)(T.sx,{draggableId:t._id,index:o,children:e=>(0,_.jsxs)(xe,{ref:e.innerRef,...e.draggableProps,style:{...e.draggableProps.style,height:"99%"},children:[(0,_.jsxs)("div",{className:"column-title",...e.dragHandleProps,children:[t.title,(0,_.jsxs)("div",{className:"title-icons",id:t.title,children:[(0,_.jsx)("button",{type:"button",onClick:()=>a(!0),children:(0,_.jsx)(U.F7,{})}),l&&(0,_.jsx)(re,{title:t.title,columnId:t._id,onClose:()=>a(!1)}),(0,_.jsx)("button",{type:"button",onClick:s,children:(0,_.jsx)(U.qbC,{})})]})]}),(0,_.jsx)(T.gL,{droppableId:t._id,type:"card",children:e=>(0,_.jsxs)("div",{ref:e.innerRef,...e.droppableProps,style:{overflowY:"auto",overflowX:"hidden",display:"flex",flexDirection:"column",gap:"8px",...Array.isArray(t.cards)&&t.cards.$length>2&&{maxHeight:"456px"}},children:[Array.isArray(t.cards)&&t.cards.map(((e,t)=>(0,_.jsx)(pe,{card:e,index:t},e._id))),e.placeholder]})}),(0,_.jsxs)(te,{$margintop:"14px",onClick:()=>r(!0),children:[(0,_.jsx)(oe,{children:(0,_.jsx)(ne,{children:(0,_.jsx)("use",{href:p.A+"#icon-plus"})})}),"Add another card"]}),i&&(0,_.jsx)(le,{columnId:t._id,onClose:()=>r(!1)})]})})},he=i.Ay.div`
   display: flex;
   gap: 18px;
   // overflow-x: auto;
@@ -641,5 +642,5 @@
   width: 14px;
   height: 14px;
   stroke: ${e=>e.theme.addColumnButton.plusColor};
-`,fe=()=>{const[e,t]=(0,u.useState)(!1),o=(0,n.d4)(I.kk),i=(0,n.d4)(I.Gs),[r,l]=(0,u.useState)([]),a=(0,n.wA)();(0,u.useEffect)((()=>{i&&i.length>0&&l(i)}),[i]);return(0,_.jsxs)(he,{children:[(0,_.jsx)(T.JY,{onDragEnd:e=>{const{destination:t,source:o,type:n}=e;if(!t)return;const i=o.index,d=t.index,s=o.droppableId,c=t.droppableId;if(i!==d||s!==c){if("column"===n){const e=r[i];let t=[...r];return t.splice(i,1),t.splice(d,0,e),void l(t)}if("card"===n){const e=r.find((e=>e._id===s)),t=r.find((e=>e._id===c)),o=e.cards[i];return a((0,L.GO)(o._id)),void a((0,L.gm)({columnId:t._id,title:o.title,description:o.description,priority:o.priority,deadline:o.deadline}))}}},children:(0,_.jsx)(T.gL,{droppableId:"all-columns",id:"all-columns",direction:"horizontal",type:"column",children:e=>(0,_.jsxs)("div",{ref:e.innerRef,...e.droppableProps,style:{display:"flex",gap:"18px"},children:[Array.isArray(r)&&r.length>0&&r.map(((e,t)=>(0,_.jsx)(ue,{column:e,index:t},e._id))),e.placeholder]})})}),(0,_.jsxs)(me,{onClick:()=>t(!0),children:[(0,_.jsx)(ge,{children:(0,_.jsx)(be,{children:(0,_.jsx)("use",{href:p.A+"#icon-plus"})})}),"Add another column"]}),e&&(0,_.jsx)(ie,{dashboardId:null===o||void 0===o?void 0:o._id,onClose:()=>t(!1)})]})},ye=()=>{const e=(0,n.d4)(I.Ss),t=(0,u.useRef)(null);return(0,_.jsx)(G,{length:e,ref:t,children:(0,_.jsx)(fe,{})})},je=()=>{const e=(0,n.wA)(),t=(0,n.d4)(l._),o=(0,n.d4)((e=>{var t;return null===e||void 0===e||null===(t=e.dashboards)||void 0===t?void 0:t.currentBg})),i=(0,n.d4)((e=>{var t;return null===e||void 0===e||null===(t=e.dashboards)||void 0===t?void 0:t.currentName}));return(0,_.jsxs)(r,{onClick:()=>{t&&e((0,a.$i)())},$bgcUrl:o,$isOpen:t,children:[(0,_.jsx)(F,{children:i}),(0,_.jsx)(ye,{})]})}}}]);
-//# sourceMappingURL=552.fe77e378.chunk.js.map
+`,fe=()=>{const[e,t]=(0,u.useState)(!1),o=(0,n.d4)(I.kk),i=(0,n.d4)(I.Gs),[r,l]=(0,u.useState)([]),a=(0,n.wA)();(0,u.useEffect)((()=>{i&&i.length>0&&l(i)}),[i]);return(0,_.jsxs)(he,{children:[(0,_.jsx)(T.JY,{onDragEnd:e=>{const{destination:t,source:o,type:n}=e;if(!t)return;const i=o.index,d=t.index,s=o.droppableId,c=t.droppableId;if(i!==d||s!==c){if("column"===n){const e=r[i];let t=[...r];return t.splice(i,1),t.splice(d,0,e),void l(t)}if("card"===n){const e=r.find((e=>e._id===s)),t=r.find((e=>e._id===c)),o=e.cards[i];return a((0,L.GO)(o._id)),void a((0,L.gm)({columnId:t._id,title:o.title,description:o.description,priority:o.priority,deadline:o.deadline}))}}},children:(0,_.jsx)(T.gL,{droppableId:"all-columns",id:"all-columns",direction:"horizontal",type:"column",children:e=>(0,_.jsxs)("div",{ref:e.innerRef,...e.droppableProps,style:{display:"flex",gap:"18px"},children:[Array.isArray(r)&&r.length>0&&r.map(((e,t)=>(0,_.jsx)(ue,{column:e,index:t},e._id))),e.placeholder]})})}),(0,_.jsxs)(me,{onClick:()=>t(!0),children:[(0,_.jsx)(ge,{children:(0,_.jsx)(be,{children:(0,_.jsx)("use",{href:p.A+"#icon-plus"})})}),"Add another column"]}),e&&(0,_.jsx)(ie,{dashboardId:null===o||void 0===o?void 0:o._id,onClose:()=>t(!1)})]})},ye=()=>{const e=(0,n.d4)(I.Ss),t=(0,u.useRef)(null);return(0,_.jsx)(G,{$length:e,ref:t,children:(0,_.jsx)(fe,{})})},je=()=>{const e=(0,n.wA)(),t=(0,n.d4)(l._),o=(0,n.d4)((e=>{var t;return null===e||void 0===e||null===(t=e.dashboards)||void 0===t?void 0:t.currentBg})),i=(0,n.d4)((e=>{var t;return null===e||void 0===e||null===(t=e.dashboards)||void 0===t?void 0:t.currentName}));return(0,_.jsxs)(r,{onClick:()=>{t&&e((0,a.$i)())},$bgcUrl:o,$isOpen:t,children:[(0,_.jsx)(F,{children:i}),(0,_.jsx)(ye,{})]})}}}]);
+//# sourceMappingURL=552.639327b0.chunk.js.map

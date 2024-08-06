@@ -6,9 +6,10 @@ export const CardM = styled.div`
   color: ${props => props.theme.column.textMain};
 
   border-radius: 4px;
-  margin-bottom: 8px;
+
   overflow: hidden;
   position: relative;
+  min-height: 154px;
   height: 154px;
 
   .card-priority-bar {

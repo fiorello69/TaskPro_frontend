@@ -10,7 +10,7 @@ const MainDashboard = () => {
   const scrollRef = useRef(null);
 
   return (
-    <Wrapper length={columnLength} ref={scrollRef}>
+    <Wrapper $length={columnLength} ref={scrollRef}>
       <Boardm />
     </Wrapper>
   );

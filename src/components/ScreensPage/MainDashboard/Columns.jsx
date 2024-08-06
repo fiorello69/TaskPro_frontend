@@ -58,7 +58,9 @@ const Column = ({ column, index }) => {
                 style={{
                   overflowY: 'auto',
                   overflowX: 'hidden',
-                  minHeight: '10px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
                   ...(Array.isArray(column.cards) &&
                     column.cards.$length > 2 && { maxHeight: '456px' }),
                 }}

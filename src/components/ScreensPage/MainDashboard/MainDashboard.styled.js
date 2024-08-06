@@ -1,5 +1,3 @@
-
-
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -12,11 +10,11 @@ export const Wrapper = styled.div`
 
   user-select: none;
 
-  // @media screen and (min-width: 768px) {
-  //   overflow-x: ${props => (props.$length < 2 ? 'hidden' : 'scroll')};
-  // }
+  @media screen and (min-width: 768px) {
+    overflow-x: ${props => (props.$length < 2 ? 'hidden' : 'scroll')};
+  }
 
-  // @media screen and (min-width: 1280px) {
-  //   overflow-x: ${props => (props.$length < 3 ? 'hidden' : 'scroll')};
-  // }
+  @media screen and (min-width: 1280px) {
+    overflow-x: ${props => (props.$length < 3 ? 'hidden' : 'scroll')};
+  }
 `;
